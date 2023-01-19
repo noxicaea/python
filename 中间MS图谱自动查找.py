@@ -1,4 +1,4 @@
-import os,xlrd,shutil,time,datetime
+import os,shutil,datetime
 import pandas as pd
 path1 =r"\\192.168.1.232\MS数据\中间质检\A-合成一部" #绝对路径，如果程序不运行就检查路径是否有不同
 path2=r"\\192.168.1.232\MS数据\合成一部\0-MS待确认" #绝对路径
@@ -18,7 +18,8 @@ for i in file2:
     except:
         pass
 try:
-    os.mkdir(r"V:\03_纯化\中间MS" + "\\" + ti) #创建当前日期的文件夹
+    os.mkdir(r"V:\03_纯化\中间MS" + "\\" + ti) 
+    #创建当前日期的文件夹
 except:
     pass
 file2 = os.listdir(path2)
@@ -28,7 +29,8 @@ print("已完成：",file3 )
 for i in file3:     
     if i in file1:
         os.rename(path1 + "\\" + i,path1 + "\\" + "已完成-" + i)
-        file1.remove(i) #如果此MS文件数据已经完成则移出列表不再搜索
+        file1.remove(i) 
+        #如果此MS文件数据已经完成则移出列表不再搜索
 
 for i in file1:   
     k = []
@@ -81,7 +83,6 @@ for i in file1:
             print(i[:-4],":已完成")
         else:
             print(list1,"未出图")
-               
 input("按<enter>继续：")
                 
                 
