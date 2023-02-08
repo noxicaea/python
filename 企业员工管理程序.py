@@ -186,6 +186,7 @@ def main():
                     print(f"降级成功！降级后的职位为{Teamleaders[uid].job+str(Teamleaders[uid].grade)}，工资为:{Teamleaders[uid].salary()}")
             elif uid in Managers.keys():
                 print(f"{Managers[uid].name},工号:{Managers[uid].uid},当前职位:{Managers[uid].job+str(Managers[uid].grade)},工龄:{Managers[uid].year},工资:{Managers[uid].salary()}")
+                minus = int(input("请输入需要降级的级数："))
                 if Managers[uid].grade - minus < 1:
                     Teamleaders[uid] = Teamleader(Managers[uid].name,"T",6,Managers[uid].year,Managers[uid].uid)
                     Managers.pop(uid)
